@@ -1,3 +1,4 @@
+from math import e
 import os
 import json
 
@@ -11,6 +12,8 @@ from model import vgg
 def main():
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
+    prune_test = True
+    
     data_transform = transforms.Compose(
         [transforms.Resize((224, 224)),
          transforms.ToTensor(),
@@ -33,19 +36,20 @@ def main():
     with open(json_path, "r") as f:
         class_indict = json.load(f)
     
-    """
-    # create model
-    model = vgg(model_name="vgg16", num_classes=2).to(device)
-    # load model weights
-    weights_path = "./pruned_vgg16_net.pth"
-    assert os.path.exists(weights_path), "file: '{}' dose not exist.".format(weights_path)
-    model.load_state_dict(torch.load(weights_path, map_location=device))
-    """
-    weights_path = "./finetuned_vgg16_net.pth"
-    assert os.path.exists(weights_path), "file: '{}' does not exist.".format(weights_path)
+    if prune_test:
+        weights_path = "./finetuned_vgg16_net.pth"
+        assert os.path.exists(weights_path), "file: '{}' does not exist.".format(weights_path)
 
-    # load model weights    
-    model = torch.load(weights_path, map_location=device)
+        # load model weights    
+        model = torch.load(weights_path, map_location=device)
+    else:
+         # create model
+        model = vgg(model_name="vgg16", num_classes=2).to(device)
+        # load model weights
+        weights_path = "./vgg16Net.pth"
+        assert os.path.exists(weights_path), "file: '{}' dose not exist.".format(weights_path)
+        model.load_state_dict(torch.load(weights_path, map_location=device))
+        
     model.to(device)
 
     model.eval()
