@@ -1,0 +1,2 @@
+# nni_pruning_distillation_demo
+使用NNI剪枝工具对VGG16网络进行剪枝，同时使用知识蒸馏对剪枝后结果进行优化。（以猫狗二分类为例）
