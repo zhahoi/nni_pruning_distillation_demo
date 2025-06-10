@@ -35,7 +35,7 @@ torch==2.1.0
 $ python split_dataset.py
 ```
 
-![1](C:\Users\HIT-HAYES\Desktop\1.png)
+![1](https://github.com/zhahoi/nni_pruning_distillation_demo/blob/main/docs/1.png)
 
 
 
@@ -59,7 +59,7 @@ $ python .\test.py
 
 分类结果如下：
 
-![2](C:\Users\HIT-HAYES\Desktop\2.png)
+![2](https://github.com/zhahoi/nni_pruning_distillation_demo/blob/main/docs/2.png)
 
 
 
@@ -110,7 +110,7 @@ $ python .\test.py
 
 分类结果如下：
 
-![3](C:\Users\HIT-HAYES\Desktop\3.png)
+![3](https://github.com/zhahoi/nni_pruning_distillation_demo/blob/main/docs/3.png)
 
 从结果来看，精度相比最原始的模型，有略微下降，但是模型的大小变成了原始模型的约五分之一。
 
