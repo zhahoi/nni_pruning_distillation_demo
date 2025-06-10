@@ -32,7 +32,7 @@ torch==2.1.0
 之后，执行以下脚本对数据集进行7:3划分：
 
 ```sh
-$ python split_dataset.py
+$ python .\split_dataset.py
 ```
 
 ![1](https://github.com/zhahoi/nni_pruning_distillation_demo/blob/main/docs/1.png)
